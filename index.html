@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Digital</title>
+    <title>Portofolio Digital | M. Resvanza Pratama Hermawan</title>
     <style>
         :root {
             --bg-main: #0f172a;
@@ -13,13 +13,23 @@
             --text-muted: #94a3b8;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg-main); color: var(--text-light); line-height: 1.6; padding-bottom: 50px; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg-main); color: var(--text-light); line-height: 1.6; padding-bottom: 50px; padding-top: 70px; }
         
+        /* STICKY NAVBAR */
+        nav { position: fixed; top: 0; left: 0; right: 0; background-color: rgba(15, 23, 42, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid #334155; z-index: 1000; padding: 15px 20px; }
+        .nav-container { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-weight: 700; color: var(--accent); font-size: 1.1rem; text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+
         /* HEADER SECTION */
-        header { max-width: 900px; margin: 60px auto 40px; padding: 0 20px; display: flex; align-items: center; gap: 30px; }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.3); }
-        .header-text h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 5px; }
+        header { max-width: 900px; margin: 40px auto; padding: 0 20px; display: flex; align-items: center; gap: 30px; }
+        .profile-img { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--accent); object-fit: cover; box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.3); background-color: #1e293b; }
+        .header-text h1 { font-size: 2.3rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 5px; }
         .header-text p { color: var(--accent); font-weight: 500; font-size: 1.1rem; }
+        .school-badge { display: inline-block; background-color: #334155; padding: 4px 12px; border-radius: 6px; font-size: 0.85rem; color: #cbd5e1; margin-top: 5px; }
 
         /* CONTAINER */
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
@@ -33,29 +43,49 @@
 
         /* PROJECTS GRID */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .card { background-color: #111827; padding: 25px; border-radius: 12px; border: 1px solid #334155; transition: all 0.3s ease; }
+        .card { background-color: #111827; padding: 25px; border-radius: 12px; border: 1px solid #334155; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px -10px rgba(56, 189, 248, 0.2); }
-        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--text-light); }
-        .card p { color: var(--text-muted); font-size: 0.95rem; }
+        .card-content h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--text-light); }
+        .card-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        
+        /* TOMBOL BUKTI PROYEK */
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+        .tech-tag { font-size: 0.8rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .btn-project { display: inline-block; background-color: var(--accent); color: var(--bg-main); padding: 6px 14px; border-radius: 6px; font-size: 0.85rem; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+        .btn-project:hover { background-color: #7dd3fc; }
 
         /* CONTACT LINK */
         .contact-list p { margin-bottom: 10px; color: var(--text-muted); }
         .contact-list strong { color: var(--text-light); }
 
         @media (max-width: 600px) {
-            header { flex-direction: column; text-align: center; margin-top: 40px; }
-            .header-text h1 { font-size: 2rem; }
+            header { flex-direction: column; text-align: center; margin-top: 20px; }
+            .header-text h1 { font-size: 1.8rem; }
+            .nav-links { gap: 10px; }
+            .nav-links a { font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVIGASI ATAS -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">MRPH.Dev</a>
+            <ul class="nav-links">
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <header>
-        <!-- Ikon Profil Sementara (Bisa diganti foto nanti) -->
-        <div class="profile-img">👨‍💻</div>
+        <img src="foto-profil.jpg" alt="M. Resvanza Pratama Hermawan" class="profile-img" onerror="this.src='https://dicebear.com'">
         <div class="header-text">
             <h1>M. Resvanza Pratama Hermawan</h1>
-            <p>Siswa SMKN 1 Cianjur/ Jurusan PPLG</p>
+            <p>Siswa Jurusan PPLG</p>
+            <div class="school-badge">SMKN 1 Cianjur</div>
         </div>
     </header>
 
@@ -63,39 +93,64 @@
         <section id="about">
             <h2>Tentang Saya</h2>
             <p style="color: var(--text-muted); margin-bottom: 15px;">
-                Halo! Saya adalah seorang pelajar dari sekolah SMKN 1 Cianjur yang memiliki ketertarikan besar di bidang teknologi, dan pengembangan web. Saya selalu bersemangat untuk mempelajari hal baru, beradaptasi dengan tantangan, serta menyelesaikan tugas akademik dengan hasil terbaik.
+                Halo! Saya adalah siswa kelas 10 jurusan Pengembangan Perangkat Lunak dan Gim (PPLG) di SMKN 1 Cianjur. Saat ini saya sedang aktif mempelajari fondasi dasar pemrograman, perancangan antarmuka aplikasi, serta metodologi pemecahan masalah kreatif untuk mempersiapkan diri menjadi seorang pengembang perangkat lunak yang kompeten.
             </p>
             <div class="skills-container">
-                <span class="skill-badge">HTML dasar</span>
-                <span class="skill-badge">Desain Grafis</span>
-                <span class="skill-badge">JavaScript dasar</span>
-              
+                <span class="skill-badge">UI/UX Design (Figma)</span>
+                <span class="skill-badge">JavaScript Dasar</span>
+                <span class="skill-badge">Design Thinking</span>
+                <span class="skill-badge">HTML5 / CSS3</span>
             </div>
         </section>
 
         <section id="projects">
-            <h2>Portofolio Karya & Proyek</h2>
+            <h2>Portofolio Karya & Proyek Kelas 10</h2>
             <div class="grid">
+                
+                <!-- PROYEK 1: FIGMA -->
                 <div class="card">
-                    <h3>01. Landing Page Proyek Web</h3>
-                    <p>Membangun struktur web portofolio responsif berbasis kode HTML statis dengan optimasi gaya CSS modern.</p>
+                    <div class="card-content">
+                        <h3>01. UI/UX Aplikasi Ujian</h3>
+                        <p>Merancang seluruh aset visual dan antarmuka (interface) aplikasi simulasi ujian sekolah berdasarkan instruksi lembar soal ujian praktikum.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="tech-tag">Figma</span>
+                        <a href="https://google.com" target="_blank" class="btn-project">Lihat Desain</a>
+                    </div>
                 </div>
+
+                <!-- PROYEK 2: DESIGN THINKING -->
                 <div class="card">
-                    <h3>02. Visual & Digital Design</h3>
-                    <p>Merancang aset visual kreatif menggunakan perangkat lunak desain digital untuk kebutuhan presentasi sekolah.</p>
+                    <div class="card-content">
+                        <h3>02. Presentasi Design Thinking</h3>
+                        <p>Menyusun laporan solusi inovatif berbasis pendekatan kebutuhan pengguna menggunakan metode riset, analisis masalah, hingga prototyping.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="tech-tag">Metodologi</span>
+                        <a href="https://google.com" target="_blank" class="btn-project">Lihat PDF</a>
+                    </div>
                 </div>
+
+                <!-- PROYEK 3: JAVASCRIPT -->
                 <div class="card">
-                    <h3>03. Analisis Laporan Digital</h3>
-                    <p>Menyusun laporan data berbasis spreadsheet terstruktur untuk mengoptimalkan efisiensi pengerjaan tugas kelompok.</p>
+                    <div class="card-content">
+                        <h3>03. Logika Dasar JavaScript</h3>
+                        <p>Menyelesaikan kumpulan studi kasus algoritma pemrograman dasar menggunakan fungsi pengondisian, perulangan, dan manipulasi variabel.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="tech-tag">JavaScript</span>
+                        <a href="https://google.com" target="_blank" class="btn-project">Lihat Kode</a>
+                    </div>
                 </div>
+
             </div>
         </section>
 
         <section id="contact">
             <h2>Hubungi Saya</h2>
             <div class="contact-list">
-                <p>Saya sangat terbuka untuk diskusi tugas, kolaborasi kelompok, atau proyek kreatif lainnya.</p>
-                <p style="margin-top: 15px;"><strong>Email Resmi:</strong> mresvanzapratamahermawan@gmail.com</p>
+                <p>Saya sangat terbuka untuk keperluan akademik, kolaborasi tim, atau diskusi proyek teknologi di SMKN 1 Cianjur.</p>
+                <p style="margin-top: 15px;"><strong>Email Resmi:</strong> resvanza.pratama@gmail.com</p>
                 <p><strong>Lokasi:</strong> Cianjur, Jawa Barat, Indonesia</p>
             </div>
         </section>
