@@ -3,34 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Portofolio</title>
+    <title>Portofolio Digital Profesional</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f6f9; color: #333; text-align: center; }
-        header { background: #1e293b; color: white; padding: 50px 20px; }
-        .container { max-width: 600px; margin: 30px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1 { margin: 0; font-size: 24px; }
-        p { color: #666; font-size: 16px; }
-        .card { background: #f8fafc; padding: 15px; margin: 15px 0; border-radius: 6px; border-left: 4px solid #2563eb; text-align: left; }
+        :root {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --accent: #38bdf8;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg-main); color: var(--text-light); line-height: 1.6; padding-bottom: 50px; }
+        
+        /* HEADER SECTION */
+        header { max-width: 900px; margin: 60px auto 40px; padding: 0 20px; display: flex; align-items: center; gap: 30px; }
+        .profile-img { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #3b82f6, #8b5cf6); display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.3); }
+        .header-text h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 5px; }
+        .header-text p { color: var(--accent); font-weight: 500; font-size: 1.1rem; }
+
+        /* CONTAINER */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        section { background-color: var(--bg-card); padding: 35px; border-radius: 16px; margin-bottom: 30px; border: 1px solid #334155; }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; color: var(--text-light); }
+        h2::before { content: ''; display: inline-block; width: 4px; height: 20px; background-color: var(--accent); border-radius: 2px; }
+        
+        /* SKILLS BADGES */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .skill-badge { background-color: #334155; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 500; color: var(--accent); border: 1px solid #475569; }
+
+        /* PROJECTS GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .card { background-color: #111827; padding: 25px; border-radius: 12px; border: 1px solid #334155; transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 20px -10px rgba(56, 189, 248, 0.2); }
+        .card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--text-light); }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* CONTACT LINK */
+        .contact-list p { margin-bottom: 10px; color: var(--text-muted); }
+        .contact-list strong { color: var(--text-light); }
+
+        @media (max-width: 600px) {
+            header { flex-direction: column; text-align: center; margin-top: 40px; }
+            .header-text h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Tugas Web Portofolio</h1>
-        <p>Proyek Web Desain Responsif</p>
+        <!-- Ikon Profil Sementara (Bisa diganti foto nanti) -->
+        <div class="profile-img">👨‍💻</div>
+        <div class="header-text">
+            <h1>M. Resvanza Pratama Hermawan</h1>
+            <p>Siswa SMKN 1 Cianjur/ Jurusan PPLG</p>
+        </div>
     </header>
+
     <div class="container">
-        <h2>Tentang Saya</h2>
-        <p>Halo, ini adalah proyek web portofolio digital yang saya susun untuk mendokumentasikan hasil belajar dan pemenuhan tugas akademik.</p>
-        
-        <h2>Proyek Pilihan</h2>
-        <div class="card">
-            <h3>1. Desain Antarmuka Web</h3>
-            <p>Pengembangan struktur halaman dasar menggunakan elemen HTML5 standar.</p>
-        </div>
-        <div class="card">
-            <h3>2. Optimasi Gaya Visual</h3>
-            <p>Penerapan komponen CSS untuk menyelaraskan tampilan agar responsif di perangkat mobile.</p>
-        </div>
+        <section id="about">
+            <h2>Tentang Saya</h2>
+            <p style="color: var(--text-muted); margin-bottom: 15px;">
+                Halo! Saya adalah seorang pelajar dari sekolah SMKN 1 Cianjur yang memiliki ketertarikan besar di bidang teknologi, dan pengembangan web. Saya selalu bersemangat untuk mempelajari hal baru, beradaptasi dengan tantangan, serta menyelesaikan tugas akademik dengan hasil terbaik.
+            </p>
+            <div class="skills-container">
+                <span class="skill-badge">HTML dasar</span>
+                <span class="skill-badge">Desain Grafis</span>
+                <span class="skill-badge">JavaScript dasar</span>
+              
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Portofolio Karya & Proyek</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>01. Landing Page Proyek Web</h3>
+                    <p>Membangun struktur web portofolio responsif berbasis kode HTML statis dengan optimasi gaya CSS modern.</p>
+                </div>
+                <div class="card">
+                    <h3>02. Visual & Digital Design</h3>
+                    <p>Merancang aset visual kreatif menggunakan perangkat lunak desain digital untuk kebutuhan presentasi sekolah.</p>
+                </div>
+                <div class="card">
+                    <h3>03. Analisis Laporan Digital</h3>
+                    <p>Menyusun laporan data berbasis spreadsheet terstruktur untuk mengoptimalkan efisiensi pengerjaan tugas kelompok.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Hubungi Saya</h2>
+            <div class="contact-list">
+                <p>Saya sangat terbuka untuk diskusi tugas, kolaborasi kelompok, atau proyek kreatif lainnya.</p>
+                <p style="margin-top: 15px;"><strong>Email Resmi:</strong> mresvanzapratamahermawan@gmail.com</p>
+                <p><strong>Lokasi:</strong> Cianjur, Jawa Barat, Indonesia</p>
+            </div>
+        </section>
     </div>
+
 </body>
 </html>
